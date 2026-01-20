@@ -26,18 +26,9 @@ values = [{
     }]
 
 def normalize_amount(amount):
-    """Normalize receipt amount by removing currency symbols.
-
-    Args:
-        amount (str | None): Raw amount string (e.g. "$43.83", "70.74").
-
-    Returns:
-        str | None: Normalized amount string without currency symbols,
-        or None if parsing fails.
-    """
+    """Normalize receipt amount by removing currency symbols"""
     if amount is None:
         return None
-
     try:
         cleaned = amount.replace("$", "").replace(",", "").strip()
         float(cleaned)  # sanity check
@@ -48,8 +39,6 @@ def normalize_amount(amount):
 def extract_receipt_info(img):
     name = list(values[0].keys())[0]
     receipt = values.pop(0)[name]
-
     receipt["amount"] = normalize_amount(receipt.get("amount"))
-
     return receipt
 """GPT module for extracting receipt information from images"""

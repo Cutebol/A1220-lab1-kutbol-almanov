@@ -3,4 +3,4 @@ PY := python
 .PHONY: run
 
 run:
-	$(PY) main.py receipts --print
+	PYTHONPATH=.. $(PY) -m lab_1.main receipts --print

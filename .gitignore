@@ -23,3 +23,5 @@ COMMAND_API_OPENAI.txt
 receipts/
 app.zip
 lab.pdf
+
+.vscode/
